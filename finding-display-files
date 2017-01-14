@@ -1,0 +1,10 @@
+##Finding files with special characters can usually be found with a ./ in front of the file name or wildcard*.
+## More extensive search by file size
+find . -type f -size 1033c -exec ls {} \;
+cat ./maybehere07/.file2
+## End of Example 
+
+##Finding files more specific
+find / -type f -size 33c -exec ls {} \;
+## Needs to be refined to find specifics on ownership
+##
