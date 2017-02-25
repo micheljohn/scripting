@@ -1,0 +1,55 @@
+## typing nmap without options will give you a list of scan types and target options ##
+##nmap scanning output to targets.txt##
+nmap -sL 192.168.15.200-254 | grep -iv done | grep -iv starting | cut -f5 -d" " >> targets.txt
+
+##nmap input targets.txt output to pingsweep file##
+nmap -sP -vv -iL targets.txt -oG pingsweep --open
+
+## cat pingsweep file ##
+cat pingsweep
+
+## nmap -sS 'synscan' ; extensive port scanning##
+nmap -sS -vv -Pn 192.168.15.200-254 -oG synscan --open
+
+## nmap -sT 'synscan' ; intensive TCP port scanning##
+nmap -sT -vv -Pn 192.168.15.200-254 -oG tcpscan --open --max-retries 1
+
+## nmap -sV 'synscan' ; intensive TCP port scanning##
+nmap -sV -vv -Pn 192.168.15.200-254 -oG svscan --open --max-retries 1
+
+## Gnmap-Parser.sh to parse out info from synscan -gg Heuristically Gather##
+./Gnmap-Parser.sh -gg
+
+## determining network of local system ##
+ifconfig
+##output info ether MAC inet 192.168.74.115 netmask 0xfffffff00 broadcast 192.168.74.255##
+## netmask hexidecimal - convert to decimal
+nmap -n 192.168.74.0/24
+
+##nmap -PN ; treat all ports as online - helps defeat ICMP drops on firewall ##
+nmap -n -sT -PN -p1-65535 -T4 192.168.74.0/24
+
+## UDP scan ##
+nmap -n -sU -T4 192.168.74.1-20
+
+## Assured Compliance Assessment Solution (ACAS) (DoD ACAS)##
+## Nessus ; Passive Vulnerability Scanner ; Security Center ##
+## A compliance program; not an application ~ DoD ACAS replacement for Secure Configuration Compliance Validation Initiative ##
+## Security Center replaced REM ~ Nessus replaced Retina Scanner ~ Passive Vulnerability Scanner (new) ##
+## PVS should be installed where your NIDS/NIPS systems are or would be deployed ##
+## PVS requires a separate license for each instance from DISA. Not currrently required to deploy, but should be deployed at the subnet level when cost validates. ##
+## ACAS requires two accounts - admin accounts for configuration and management of ACAS apps/zones; user accounts provide scanning and reporting functions only ##
+## Organizations are created on need of separation. Only one SuperUser can be Org Head. Others can have same permissions, but not be an Org Head. ##
+## Scan zones ~ separation of duties and corresponding buckets of information ##
+## ePolicy Orchestrator (ePO) Server ~ enhanced reporting session ##
+## First monitor indicates McAfee Agent is installed and checked-in within the last X days (10 default) ##
+
+##Xprobe2 - fingerprinting tool -v -M [number] 
+## user T@rt@ns root toor
+## Nmap -sO -D RND:3 192.168.30.14
+
+
+
+
+
+
