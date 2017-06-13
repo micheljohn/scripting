@@ -1,3 +1,17 @@
 ##Notes for ACAS
-##
+## Assured Compliance Assessment Solution (ACAS) (DoD ACAS)##
+## Nessus ; Passive Vulnerability Scanner ; Security Center ##
+## A compliance program; not an application ~ DoD ACAS replacement for Secure Configuration Compliance Validation Initiative ##
+## Security Center replaced REM ~ Nessus replaced Retina Scanner ~ Passive Vulnerability Scanner (new) ##
+## PVS should be installed where your NIDS/NIPS systems are or would be deployed ##
+## PVS requires a separate license for each instance from DISA. Not currrently required to deploy, but should be deployed at the subnet level when cost validates. ##
+## ACAS requires two accounts - admin accounts for configuration and management of ACAS apps/zones; user accounts provide scanning and reporting functions only ##
+## Organizations are created on need of separation. Only one SuperUser can be Org Head. Others can have same permissions, but not be an Org Head. ##
+## Scan zones ~ separation of duties and corresponding buckets of information ##
+## ePolicy Orchestrator (ePO) Server ~ enhanced reporting session ##
+## First monitor indicates McAfee Agent is installed and checked-in within the last X days (10 default) ##
+
+##Xprobe2 - fingerprinting tool -v -M [number] 
+## user T@rt@ns root toor
+## Nmap -sO -D RND:3 192.168.30.14
 ##
