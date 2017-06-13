@@ -1,0 +1,25 @@
+## config'd security onion
+## checking bro
+## service check
+sudo service nsm status
+## cd to current log directory
+cd /nsm/bro/logs/current
+## list logs and conn.log
+ls
+ls conn.log
+cat conn.log
+head conn.log
+tail conn.log
+## cat conn.log to bro-cut with the following id info.
+cat conn.log | bro-cut id.orig_h id.orig_p id.resp_p proto
+## bro-cut with options
+bro-cut -du ts uid < conn.log
+## tcpreplay
+sudo tcpreplay -i eth1 --pps=100 /opt/samples/ConfickerB9hrs.pcap
+## grep 445 in conn.log
+more conn.log |grep 445
+##
+sudo tcpreplay -i eth1 -M10 /opt/samples/ConfickerB9hrs.pcap
+## generating traffic
+## checking traffic
+for i in $(locate *.pcap); do sudo tcpreplay -i eth1 --pps=500 $i; done
