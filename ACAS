@@ -6,6 +6,7 @@
 ## PVS should be installed where your NIDS/NIPS systems are or would be deployed ##
 ## PVS requires a separate license for each instance from DISA. Not currrently required to deploy, but should be deployed at the subnet level when cost validates. ##
 ## ACAS requires two accounts - admin accounts for configuration and management of ACAS apps/zones; user accounts provide scanning and reporting functions only ##
+## The two accounts are for separation of duties and additional security to keep the admin account safe from enduser 
 ## Organizations are created on need of separation. Only one SuperUser can be Org Head. Others can have same permissions, but not be an Org Head. ##
 ## Scan zones ~ separation of duties and corresponding buckets of information ##
 ## ePolicy Orchestrator (ePO) Server ~ enhanced reporting session ##
