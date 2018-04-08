@@ -1,0 +1,25 @@
+# find by -type 'f' ascii files
+find . -type f -exec file '{}' \;
+
+# find by name
+find /mnt/usb -name *.mov
+# find by name and send to file name
+find /mnt/usb -name *.mov > find_mov.txt
+# execute an argument from the file find_mov.txt
+xargs -a find_mov.txt mv -t /mnt/usb/media/home_movies
+#add " to end of line
+sed -i 's/$/"/g' find_mov.txt #add a " at the end of each line of file
+#add " to beginning of line
+sed -i 's/^/"/g' find_mov.txt #add a " at the beginning of each line of file
+# setup the files for moving with spaces
+sed -i 's/$/"/g' find_avi.txt
+sed -i 's/^/"/g' find_avi.txt
+xargs -a find_avi.txt mv -t /mnt/usb/media/home_movies
+# same different file
+sed -i 's/$/"/g' find_mpg1.txt
+sed -i 's/^/"/g' find_mpg1.txt
+xargs -a find_mpg1.txt mv -t /mnt/usb/media/home_movies
+# again to clean up videos
+sed -i 's/$/"/g' find_mp4.txt
+sed -i 's/^/"/g' find_mp4.txt
+xargs -a find_mp4.txt mv -t /mnt/usb/media/audo_books/Podcasts
